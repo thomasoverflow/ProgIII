@@ -1,2 +1,3 @@
 # ProgIII
-Repository to the subject Prog.III
+Repositório para arquivos de Prog.III - UFSC
+
