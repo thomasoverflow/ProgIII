@@ -1,0 +1,3 @@
+/home/thomas/Documents/UFSC/Prog.III/Aula2/Ex_1/cmake-build-debug/CMakeFiles/Aula2.dir
+/home/thomas/Documents/UFSC/Prog.III/Aula2/Ex_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/thomas/Documents/UFSC/Prog.III/Aula2/Ex_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
