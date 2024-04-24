@@ -1,33 +1,60 @@
 //
 // Created by thomas on 23/04/24.
 //
+#include <Fila.h>
 
-#include "Fila.h"
+using namespace std;
 
 Fila::Fila(int pmax){
-    head = 0;
-    tail = 0;
-    max_size = pmax;
-    lista = new std::string[pmax]();
+    head=nullptr;
+    maxSize = pmax;
+    size = 0;
 }
 
 Fila::~Fila(){
-    delete[] lista;
+    if (head == nullptr) return;
+        Node* current = head;
+        Node* next = head->next;
+    while (next != head) {
+        delete current;
+        current = next;
+        next = next->next;
+    }
+    delete current;
+    head = nullptr;
 }
 
-Fila::inserir(std::string elem){
-    lista[head] = elem;
-    head+=1;
+void Fila::inserir(string elem) {
+    Node* new_node = new Node();
+    new_node->data = elem;
+    new_node->next = nullptr;
+    new_node->prev = nullptr;
+
+    //Checa condição da lista
+    if(head == nullptr){
+        head = new_node;
+        head->prev = head;
+        head->next = head;
+    }else{
+        Node* last = head->prev;
+        last->next = new_node;
+        new_node->prev = last;
+        new_node->next = head;
+        head->prev = new_node;
+    }
+    size++;
 }
 
+/*
 Fila::frente(){
     return lista[head-1];
 }
 
-Fila::remover(){
+string Fila::remover(){
 
 }
+*/
 
-Fila::getTamanho(){
-
+int Fila::getTamanho(){
+    return size;
 }

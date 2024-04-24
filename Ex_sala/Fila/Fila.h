@@ -7,10 +7,17 @@
 
 #include <string>
 
+/*Método de implementação de lista simplesmente encadeada*/
+struct Node {
+    std::string data;
+    Node* next;
+    Node* prev;
+};
+
 // Apenas a declaração da classe Fila
 class Fila{
-    std::string *lista;
-    int head, tail, max_size;
+    Node* head;
+    int maxSize, size;
     public:
         Fila(int pmax);
         ~Fila();
