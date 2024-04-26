@@ -8,7 +8,13 @@ int main(){
     Fila Test(10);
     Test.inserir("Thomas");
     Test.inserir("João");
+    Test.inserir("Vanessa");
+
 
     std::cout << "Tamanho atual da lista => "<< Test.getTamanho()<<std::endl;
+    std::cout << "Valor na frente => " << Test.frente() << std::endl;
+    std::cout << "Valor removido => " << Test.remover() << std::endl;
+    std::cout << "Valor removido => " << Test.remover() << std::endl;
+
     return 0;
 }

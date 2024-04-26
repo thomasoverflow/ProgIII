@@ -6,54 +6,34 @@
 using namespace std;
 
 Fila::Fila(int pmax){
-    head=nullptr;
     maxSize = pmax;
-    size = 0;
+    vect = new string[pmax]();
 }
 
 Fila::~Fila(){
-    if (head == nullptr) return;
-        Node* current = head;
-        Node* next = head->next;
-    while (next != head) {
-        delete current;
-        current = next;
-        next = next->next;
-    }
-    delete current;
-    head = nullptr;
+    delete[] vect;
 }
 
 void Fila::inserir(string elem) {
-    Node* new_node = new Node();
-    new_node->data = elem;
-    new_node->next = nullptr;
-    new_node->prev = nullptr;
-
-    //Checa condição da lista
-    if(head == nullptr){
-        head = new_node;
-        head->prev = head;
-        head->next = head;
-    }else{
-        Node* last = head->prev;
-        last->next = new_node;
-        new_node->prev = last;
-        new_node->next = head;
-        head->prev = new_node;
-    }
-    size++;
+    vect[size] = elem;
+    size+=1;
 }
 
-/*
-Fila::frente(){
-    return lista[head-1];
+
+string Fila::frente(){
+    return vect[0];
 }
+
 
 string Fila::remover(){
-
+    string temp = vect[0];
+   for(int i=0;i<size;i++){
+       vect[i] = vect[i+1];
+   }
+   size--;
+   return temp;
 }
-*/
+
 
 int Fila::getTamanho(){
     return size;
