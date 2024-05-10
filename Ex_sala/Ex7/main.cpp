@@ -1,5 +1,13 @@
 #include <iostream>
 
+/*
+     Construa uma classe para Círculos, que tenha 
+    um construtor que aceite o raio como único parâmetro 
+    e verifique se o raio é válido. Caso o raio seja menor 
+    ou igual a zero, lance uma exceção. Implemente o método 
+    getRaio que retorna o raio.
+*/
+
 template <typename T>
 T calculo_retangulo(T comprimento, T largura){
     return (comprimento * largura);
