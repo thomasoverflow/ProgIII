@@ -6,7 +6,8 @@ protected:
     std::string txt;
 public:
     Texto(std::string ptxt) : txt(ptxt){}
-
+    virtual std::string getTexto() = 0;
+    virtual ~Texto(){};
 };
 
 class TextoPortugues : public Texto{
@@ -34,9 +35,9 @@ public:
 };
 
 void imprimir_chat(std::list<Texto*> chat){
-    for(){// Como iterar na lista?
+    for(Texto* i : chat){// Como iterar na lista?
+        std::cout << i->getTexto() << std::endl;
         // Imprimir no std::cout getTexto para cada elemento
-
     }
 }
 
@@ -49,10 +50,12 @@ int main() {
     imprimir_chat(chat);
 
     //Como Liberar a memória de todos os elementos?
-
+    for(Texto* i : chat){
+        delete i;
+    }
 
     // Vai acontecer um erro nesta linha se você esqueceu algum virtual importante!
-    static_assert(std::is_polymorphic_v<Texto>);
+    static_assert(std::is_polymorphic<Texto>());
     // Vai acontecer um erro nesta linha se você esqueceu de declarar um método virtual puro!
     static_assert(std::is_abstract<Texto>(), "A classe texto não é abstrata");
     return 0;
